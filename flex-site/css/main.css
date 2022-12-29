@@ -1,0 +1,180 @@
+:root {
+    --navy: #002e94;
+    --blue: #083AA9;
+    --beige: #e1ceb5;
+    --wedding: #ffe7cc;
+}
+
+* {
+    box-sizing: border-box;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+header {
+    background-color: var(--navy);
+    color: var(--wedding);
+    flex: 1 20%;
+}
+
+.header-title {
+    margin-left: 1rem;
+}
+
+main {
+    background-color: var(--wedding);
+    flex: 2 80%;
+    height: 100vh;
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav li a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: var(--wedding);
+}
+
+nav li a:hover {
+    background-color: var(--blue);
+}
+
+.banner {
+    text-align: center;
+}
+
+.banner img {
+    width: 300px;
+    height: auto;
+    border-radius: 10%;
+}
+
+.banner-images {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+code {
+    font-family:'Courier New', Courier, monospace;
+    background-color: lightgray;
+    border: 1px solid black;
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+.bgcolor-beige {
+    background-color: var(--beige);
+}
+
+section {
+    padding: 1rem;
+}
+
+.hamb {
+    position: absolute;
+    top: 5rem;
+    right: 1rem;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamb-line {
+    background: white;
+    display: none;
+    height: 2px;
+    position: relative;
+    width: 30px;
+}
+
+.hamb-line::before,
+.hamb-line::after {
+    background: white;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    transition: all .2s ease-out;
+}
+
+.hamb-line::before {
+    top: 10px;
+}
+
+.hamb-line::after {
+    top: -10px;
+}
+
+.side-menu {
+    display: none;
+}
+
+.side-menu:checked ~ nav.active {
+    display: block;
+}
+
+.side-menu:checked ~ .hamb .hamb-line {
+    background: transparent;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+@media screen and (max-width:600px) {
+    .container {
+        flex-direction: column;
+    }
+
+    header {
+        position: fixed;
+    }
+
+    nav li {
+        text-align: center;
+    }
+
+    .hamb-line {
+        display: block;
+    }
+
+    nav.active {
+        display: none;
+    }
+}
